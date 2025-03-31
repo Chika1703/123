@@ -1,0 +1,11 @@
+# Игнорируем все ключи SSH
+*.pem
+*.key
+*.pub
+*rsa
+# Игнорируем Terraform файлы состояния и временные файлы
+**/.terraform/*
+.terraform*
+*.tfstate
+*.tfstate.*
+*.auto.tfvars
