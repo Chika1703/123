@@ -183,11 +183,11 @@ test = [
 * задание выполнено частично или не выполнено вообще,
 * в логике выполнения заданий есть противоречия и существенные недостатки. 
 
-### Решение обязательных заданий через связку terraform + docker
+#### Решение обязательных заданий через связку terraform + docker
 
 ## ШАГ 1 "Базовая настройка"
 
-![Basic setup](C:\Users\dimak\OneDrive\Desktop\2.jpg)
+![Basic setup](https://github.com/Chika1703/terraform_hw/blob/main/02.2/images/2.jpg)
 
 **main.tf:**
 
@@ -217,7 +217,7 @@ resource "docker_container" "web" {
 
 ## ШАГ 2 "Переменные"
 
-![Variables](C:\Users\dimak\OneDrive\Desktop\6.jpg)
+![Variables](https://github.com/Chika1703/terraform_hw/blob/main/02.2/images/6.jpg)
 
 
 
@@ -263,7 +263,7 @@ resource "docker_container" "web" {
 
 ## ШАГ 3 Вторая ВМ
 
-![the second vm](C:\Users\dimak\OneDrive\Desktop\7.jpg)
+![the second vm](https://github.com/Chika1703/terraform_hw/blob/main/02.2/images/7.jpg)
 
 **vms_platform.tf:**
 
@@ -314,7 +314,7 @@ resource "docker_container" "db" {
 
 ## ШАГ 4 "Вывод"
 
-![Outputs](C:\Users\dimak\OneDrive\Desktop\5.jpg)
+![Outputs](https://github.com/Chika1703/terraform_hw/blob/main/02.2/images/5.jpg)
 
 
 **outputs.tf:**
@@ -335,7 +335,7 @@ resource "docker_container" "db" {
 
 ## ШАГ 5 Локальные значения
 
-![locals](C:\Users\dimak\OneDrive\Desktop\3.jpg)
+![locals](https://github.com/Chika1703/terraform_hw/blob/main/02.2/images/3.jpg)
 
 **locals.tf:**
 locals {
@@ -383,7 +383,7 @@ resource "docker_container" "db" {
 
 ## ШАГ 6 MAP-переменные
 
-![MAP-переменные](C:\Users\dimak\OneDrive\Desktop\4.jpg)
+![MAP-переменные](https://github.com/Chika1703/terraform_hw/blob/main/02.2/images/4.jpg)
 
 **variables.tf:**
 
