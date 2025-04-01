@@ -191,7 +191,8 @@ test = [
 
 **main.tf:**
 
-```terraform {
+```
+terraform {
   required_providers {
     docker = {
       source = "kreuzwerker/docker"
@@ -224,7 +225,8 @@ resource "docker_container" "web" {
 
 **variables.tf:**
 
-```variable "vm_web_name" {
+```
+variable "vm_web_name" {
   type    = string
   default = "netology-develop-platform-web"
 }
@@ -237,7 +239,8 @@ variable "vm_web_image" {
 
 **main.tf:**
 
-```terraform {
+```
+terraform {
   required_providers {
     docker = {
       source = "kreuzwerker/docker"
@@ -267,7 +270,8 @@ resource "docker_container" "web" {
 
 **vms_platform.tf:**
 
-```variable "vm_db_name" {
+```
+variable "vm_db_name" {
   type    = string
   default = "netology-develop-platform-db"
 }
@@ -280,7 +284,8 @@ variable "vm_db_image" {
 
 **main.tf:**
 
-```terraform {
+```
+terraform {
   required_providers {
     docker = {
       source = "kreuzwerker/docker"
@@ -319,7 +324,8 @@ resource "docker_container" "db" {
 
 **outputs.tf:**
 
-```output "vm_instances" {
+```
+output "vm_instances" {
   value = {
     web = {
       name = docker_container.web.name
@@ -338,6 +344,8 @@ resource "docker_container" "db" {
 ![locals](https://github.com/Chika1703/terraform_hw/blob/main/02.2/images/3.jpg)
 
 **locals.tf:**
+
+```
 locals {
   vm_web_name = "${var.vm_web_name}-docker"
   
@@ -347,11 +355,13 @@ locals {
     Project = "Netology"
     Course  = "Terraform"
   }
-}```
+}
+```
 
 **main.tf:**
 
-```terraform {
+```
+terraform {
   required_providers {
     docker = {
       source = "kreuzwerker/docker"
@@ -387,7 +397,8 @@ resource "docker_container" "db" {
 
 **variables.tf:**
 
-```variable "vm_web_name" {
+```
+variable "vm_web_name" {
   type    = string
   default = "netology-develop-platform-web"
 }
@@ -419,7 +430,8 @@ variable "vms_resources" {
 
 **main.tf:**
 
-```terraform {
+```
+terraform {
   required_providers {
     docker = {
       source = "kreuzwerker/docker"
