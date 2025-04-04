@@ -296,4 +296,5 @@ https://timeweb.cloud/docs/terraform
 
 https://timeweb.cloud/docs/twc-cli/twc-cli-start
 
-ссылка на репозиторий с дз https://github.com/Chika1703/terraform_hw/blob/main/02/hw-02.md
+ссылка на дз
+https://github.com/netology-code/ter-homeworks/blob/main/02/hw-02.md
