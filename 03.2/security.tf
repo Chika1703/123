@@ -2,11 +2,11 @@ resource "twc_firewall" "security_firewall" {
   name        = "security-firewall"
   description = "Фаервол для управления доступом"
 
-  # Динамический блок связывает фаервол со всеми серверами, созданными через ресурс twc_instance.server.
+  # Динамический блок link связывает фаервол со всеми серверами, созданными ресурсом twc_server.web
   dynamic "link" {
-    for_each = values(twc_instance.server)
+    for_each = toset(twc_server.web[*].id)
     content {
-      id   = link.value.id
+      id   = link.value
       type = "server"
     }
   }

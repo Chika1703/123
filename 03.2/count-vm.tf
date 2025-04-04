@@ -1,16 +1,9 @@
-resource "twc_instance" "web" {
+resource "twc_server" "web" {
   count = 2
-
   name  = "web-${count.index + 1}"
-  image = var.web_image_id
-  plan  = var.web_plan
-
-  # Привязываем к созданному firewall (если он используется для web-серверов)
-  security_group_id = twc_firewall.security_firewall.id
-  
-  metadata = {
-    ssh_key = var.vm_ssh_public_key
-  }
-
-  depends_on = [twc_instance.db]
+  preset_id = var.web_preset_id
+  project_id = var.project_id
+  os_id = var.os_id
+  availability_zone = var.availability_zone
+  ssh_keys_ids = var.ssh_keys_ids
 }

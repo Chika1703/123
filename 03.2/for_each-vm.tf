@@ -1,14 +1,10 @@
-resource "twc_instance" "db" {
-  for_each = { for vm in var.each_vm : vm.vm_name => vm }
-  
-  name      = each.value.vm_name
-  cpu       = each.value.cpu
-  ram       = each.value.ram
-  disk_size = each.value.disk_volume
-  image     = var.db_image_id
-  plan      = var.db_plan
-  
-  metadata = {
-    ssh_key = var.vm_ssh_public_key
-  }
+resource "twc_server" "databases" {
+  count = 2
+  name  = "database-${count.index + 1}"
+
+  preset_id         = var.web_preset_id
+  project_id        = var.project_id
+  os_id             = var.os_id
+  availability_zone = var.availability_zone
+  ssh_keys_ids      = var.ssh_keys_ids
 }
