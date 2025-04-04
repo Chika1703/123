@@ -23,15 +23,11 @@ resource "twc_server" "server" {
   is_root_password_required = true
   ssh_keys_ids              = each.value.ssh_keys_ids
   floating_ip_id            = try(twc_floating_ip.server_ip[each.key].id, null)
-  // Динамический блок для подключения к приватной (локальной) сети.
-  // Если переменная local_network_id задана (не пустая), то блок создаётся,
-  // при этом, если для сервера задан параметр local_network_ip, то он указывается.
-  dynamic "local_network" {
-    for_each = var.local_network_id != "" ? [each.value] : []
-    content {
-      id = var.local_network_id
-      ip = lookup(each.value, "local_network_ip", null)
-    }
+
+  # Подключаем сервер к сети и фаерволу
+  networks {
+    id          = var.local_network_id
+    firewall_id = twc_firewall.example.id
   }
 }
 
