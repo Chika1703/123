@@ -1,0 +1,22 @@
+# Директория с установленными модулями Terraform
+.terraform/
+
+# Файлы состояния Terraform
+terraform.tfstate
+terraform.tfstate.backup
+
+# Логи работы
+*.log
+crash.log
+
+# Файл с переменными, содержащими чувствительные данные (например, API токен)
+terraform.tfvars
+
+# Файлы переопределения (override files)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Конфигурационные файлы CLI
+.terraformrc
