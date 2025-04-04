@@ -1,34 +1,24 @@
 variable "twc_token" {
-  description = "Timeweb Cloud API token"
+  description = "API токен Timeweb Cloud"
   type        = string
   sensitive   = true
 }
 
 variable "vm_ssh_public_key" {
-  description = "SSH public key для доступа к VM"
+  description = "SSH публичный ключ для доступа к виртуальным машинам"
   type        = string
 }
 
 variable "availability_zone" {
   description = "Зона доступности для ресурсов"
   type        = string
-  default     = "msk-1"   
+  default     = "msk-1"
 }
 
 variable "local_network_id" {
   description = "ID приватной (локальной) сети"
   type        = string
-  default     = ""  
-}
-
-variable "cloud_id" {
-  description = "Cloud ID"
-  type        = string
-}
-
-variable "folder_id" {
-  description = "Идентификатор папки"
-  type        = string
+  default     = ""
 }
 
 variable "servers" {
@@ -40,7 +30,6 @@ variable "servers" {
     os_id             = number
     ssh_keys_ids      = list(number)
     floating_ip       = bool
-    // Опциональное поле для указания IP в локальной сети (если сервер подключается к приватной сети)
     local_network_ip  = optional(string)
   }))
   default = [

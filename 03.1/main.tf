@@ -11,7 +11,6 @@ resource "twc_floating_ip" "server_ip" {
   ddos_guard        = false
 }
 
-# Создаём серверы с использованием управляющих конструкций
 resource "twc_server" "server" {
   for_each = local.servers_map
 
@@ -24,10 +23,10 @@ resource "twc_server" "server" {
   ssh_keys_ids              = each.value.ssh_keys_ids
   floating_ip_id            = try(twc_floating_ip.server_ip[each.key].id, null)
 
-  # Подключаем сервер к сети и фаерволу
-  networks {
-    id          = var.local_network_id
-    firewall_id = twc_firewall.example.id
+  # Подключаем сервер к приватной сети
+  local_network {
+    id = var.local_network_id
+    ip = each.value.local_network_ip
   }
 }
 
