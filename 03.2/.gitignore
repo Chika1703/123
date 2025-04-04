@@ -1,0 +1,9 @@
+# Игнорирование директорий и файлов Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+override.tf
+override.tf.json
+.terraformrc
+terraform.rc
+personal.auto.tfvars
