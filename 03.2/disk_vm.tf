@@ -1,3 +1,8 @@
+resource "twc_floating_ip" "storage_ip" {
+  count             = 1
+  availability_zone = var.availability_zone
+}
+
 resource "twc_server" "storage" {
   name              = "storage"
   os_id             = var.os_id
@@ -5,16 +10,12 @@ resource "twc_server" "storage" {
   project_id        = var.project_id
   availability_zone = var.availability_zone
   ssh_keys_ids      = var.ssh_keys_ids
+  floating_ip_id    = twc_floating_ip.storage_ip[0].id
 }
 
 resource "twc_server_disk" "additional_disks" {
-  depends_on = [twc_server.storage]
+  depends_on        = [twc_server.storage]
   count             = 3
   source_server_id  = twc_server.storage.id
   size              = 10240
-}
-
-resource "twc_floating_ip" "storage_ip" {
-  count             = 1
-  availability_zone = var.availability_zone
 }

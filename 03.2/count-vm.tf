@@ -1,3 +1,8 @@
+resource "twc_floating_ip" "web_ips" {
+  count             = 2
+  availability_zone = var.availability_zone
+}
+
 resource "twc_server" "web" {
   count             = 2
   name              = "web-${count.index + 1}"
@@ -6,9 +11,5 @@ resource "twc_server" "web" {
   os_id             = var.os_id
   availability_zone = var.availability_zone
   ssh_keys_ids      = var.ssh_keys_ids
-}
-
-resource "twc_floating_ip" "web_ips" {
-  count             = 2
-  availability_zone = var.availability_zone
+  floating_ip_id    = twc_floating_ip.web_ips[count.index].id
 }

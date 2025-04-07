@@ -48,7 +48,7 @@ variable "servers" {
       project_id       = 1407935
       os_id            = 79
       ssh_keys_ids     = [288185]
-      floating_ip      = false
+      floating_ip      = true
       local_network_ip = "192.168.0.5"
     }
   ]
@@ -77,8 +77,30 @@ variable "webservers" {
 }
 
 variable "databases" {
-  type = list(string)
-  default = ["main", "replica"]
+  description = "Список конфигураций серверов баз данных"
+  type = list(object({
+    name         = string,
+    preset_id    = number,
+    disk_volume  = number,
+    ssh_keys_ids = list(number),
+    floating_ip  = bool
+  }))
+  default = [
+    {
+      name         = "main",
+      preset_id    = 4795,
+      disk_volume  = 10,
+      ssh_keys_ids = [288185],
+      floating_ip  = true
+    },
+    {
+      name         = "replica",
+      preset_id    = 4797,
+      disk_volume  = 10,
+      ssh_keys_ids = [288185],
+      floating_ip  = true
+    }
+  ]
 }
 
 variable "storage" {
