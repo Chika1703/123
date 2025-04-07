@@ -8,8 +8,13 @@ resource "twc_server" "storage" {
 }
 
 resource "twc_server_disk" "additional_disks" {
+  depends_on = [twc_server.storage]
   count             = 3
-  depends_on       = [twc_server.storage]
   source_server_id  = twc_server.storage.id
-  size              = 5120
+  size              = 10240
+}
+
+resource "twc_floating_ip" "storage_ip" {
+  count             = 1
+  availability_zone = var.availability_zone
 }

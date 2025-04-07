@@ -1,0 +1,10 @@
+[webservers]
+web ansible_host=109.73.205.72
+web ansible_host=109.73.203.174
+
+[databases]
+db ansible_host=109.73.195.109
+db ansible_host=109.73.203.85
+
+[storage]
+storage ansible_host=109.73.203.114

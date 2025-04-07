@@ -8,3 +8,8 @@ resource "twc_server" "databases" {
   availability_zone = var.availability_zone
   ssh_keys_ids      = var.ssh_keys_ids
 }
+
+resource "twc_floating_ip" "db_ips" {
+  count             = 2
+  availability_zone = var.availability_zone
+}
