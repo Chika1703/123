@@ -89,14 +89,14 @@ variable "databases" {
     {
       name         = "main",
       preset_id    = 4795,
-      disk_volume  = 10,
+      disk_volume  = 15,
       ssh_keys_ids = [288185],
       floating_ip  = true
     },
     {
       name         = "replica",
       preset_id    = 4797,
-      disk_volume  = 10,
+      disk_volume  = 20,
       ssh_keys_ids = [288185],
       floating_ip  = true
     }
