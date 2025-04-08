@@ -12,5 +12,5 @@ resource "twc_server" "web" {
   availability_zone = var.availability_zone
   ssh_keys_ids      = var.ssh_keys_ids
   floating_ip_id    = twc_floating_ip.web_ips[count.index].id
-  depends_on = [twc_server.databases] 
+  depends_on        = [twc_server.databases] 
 }
